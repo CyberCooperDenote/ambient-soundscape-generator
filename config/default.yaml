@@ -1,0 +1,35 @@
+# ambient-soundscape-generator — default runtime config
+pipeline:
+  stages:
+    - ingest.prompt
+    - ingest.mood
+    - processors.spectral
+    - processors.latent
+    - processors.mixdown
+  max_workers: 4
+  queue_size: 64
+
+audio:
+  sample_rate: 48000
+  channels: 2
+  bit_depth: 24
+  buffer_frames: 1024
+
+models:
+  registry: config/models.yaml
+  device: cpu            # cpu | cuda | directml
+  onnx_threads: 4
+
+drivers:
+  default: file          # file | wasapi | asio | virtual_cable
+  file:
+    output_dir: renders
+    format: wav
+  wasapi:
+    device_name: "Speakers (Realtek)"
+    exclusive: false
+
+logging:
+  level: INFO
+  file: logs/pipeline.log
+  rich: true
