@@ -1,0 +1,24 @@
+# Model registry for ambient-soundscape-generator.
+# Weights are NOT committed. Run `asg fetch-models` to download.
+entries:
+  - id: latent-ambient-v3
+    task: latent
+    path: models/latent_ambient_v3.onnx
+    sha256: "REPLACE_WITH_HASH"
+    url: "https://models.ambient-soundscape-generator.dev/latent_ambient_v3.onnx"
+    sample_rate: 48000
+    latent_dim: 512
+
+  - id: spectral-tilt-v2
+    task: spectral
+    path: models/spectral_tilt_v2.onnx
+    sha256: "REPLACE_WITH_HASH"
+    url: "https://models.ambient-soundscape-generator.dev/spectral_tilt_v2.onnx"
+    sample_rate: 48000
+
+  - id: mood-encoder-v1
+    task: mood
+    path: models/mood_encoder_v1.onnx
+    sha256: "REPLACE_WITH_HASH"
+    url: "https://models.ambient-soundscape-generator.dev/mood_encoder_v1.onnx"
+    embedding_dim: 256
